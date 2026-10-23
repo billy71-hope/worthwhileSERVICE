@@ -1,0 +1,436 @@
+/* ========================================
+   WORTHWHILE SERVICES - PREMIUM DESIGN SYSTEM
+   ======================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   FONT IMPORTS
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
+
+/* ========================================
+   ROOT VARIABLES & DESIGN TOKENS
+   ======================================== */
+
+:root {
+  --font-montserrat: 'Montserrat', system-ui, sans-serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography scales using fluid responsive values */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(3rem, 5vw, 5rem); }
+h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.875rem, 3.5vw, 2.5rem); }
+h4 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h5 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h6 { font-size: clamp(1rem, 2vw, 1.25rem); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Selection color */
+::selection {
+  background-color: #FFB400;
+  color: #0A0A0A;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFB400;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E6A300;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ========================================
+   GLASSMORPHISM STYLES
+   ======================================== */
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-lg {
+  @apply bg-white/8 backdrop-blur-xl border border-white/15;
+}
+
+.glass-yellow {
+  @apply bg-yellow/5 backdrop-blur-xl border border-yellow/15;
+}
+
+.glass-yellow-lg {
+  @apply bg-yellow/10 backdrop-blur-xl border border-yellow/20;
+}
+
+/* ========================================
+   GRADIENT TEXT STYLES
+   ======================================== */
+
+.gradient-text {
+  @apply bg-gradient-to-r from-yellow via-yellow-light to-white bg-clip-text text-transparent;
+}
+
+.gradient-text-yellow {
+  @apply bg-gradient-to-r from-yellow to-yellow-light bg-clip-text text-transparent;
+}
+
+.gradient-text-black-yellow {
+  @apply bg-gradient-to-r from-black to-yellow bg-clip-text text-transparent;
+}
+
+/* ========================================
+   ANIMATION KEYFRAMES
+   ======================================== */
+
+/* Premium fade-in-up animation */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Premium slide-up from bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   GRID PATTERN BACKGROUND
+   ======================================== */
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,180,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,180,0,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ========================================
+   HERO GRADIENT BACKGROUND
+   ======================================== */
+
+.hero-gradient {
+  background: radial-gradient(ellipse at center, rgba(255, 180, 0, 0.08) 0%, transparent 70%);
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn {
+  @apply inline-flex items-center justify-center;
+}
+
+.btn-primary {
+  @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl
+           bg-yellow text-black font-heading font-bold text-fluid-base
+           transition-all duration-premium ease-premium
+           hover:scale-[1.02] hover:shadow-glow-yellow-lg
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.btn-secondary {
+  @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl
+           bg-transparent text-white font-heading font-bold text-fluid-base
+           border-2 border-white/20
+           transition-all duration-premium ease-premium
+           hover:border-yellow/50 hover:bg-yellow/5 hover:text-yellow
+           hover:shadow-glow-yellow
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.btn-outline-yellow {
+  @apply relative inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl
+           bg-transparent text-yellow font-heading font-semibold text-fluid-sm
+           border-2 border-yellow
+           transition-all duration-premium ease-premium
+           hover:bg-yellow hover:text-black
+           active:scale-[0.97]
+           focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.btn-ghost {
+  @apply relative inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           bg-transparent text-gray-300 hover:text-yellow hover:bg-yellow/5 transition-all duration-base
+           focus:outline-none focus:ring-2 focus:ring-yellow focus:ring-offset-2 focus:ring-offset-black;
+}
+
+.btn-icon {
+  @apply p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors;
+}
+
+/* ========================================
+   CARD STYLES - PREMIUM GLASS CARDS
+   ======================================== */
+
+.card-premium {
+  @apply relative p-8 rounded-3xl glass overflow-hidden
+           transition-all duration-slow ease-premium
+           hover:shadow-premium-hover hover:border-yellow/30
+           hover:-translate-y-1;
+}
+
+.card-premium::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-yellow/10 via-transparent to-transparent opacity-0
+         transition-opacity duration-slow ease-premium;
+}
+
+.card-premium:hover::before {
+  @apply opacity-100;
+}
+
+.card-premium .glass {
+  @apply border-yellow/20;
+}
+
+/* ========================================
+   SECTION LAYOUT STYLES
+   ======================================== */
+
+.section-container {
+  @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+}
+
+.section-header {
+  @apply text-center max-w-3xl mx-auto mb-16 sm:mb-20;
+}
+
+.section-tag {
+  @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+           bg-yellow/10 text-yellow text-fluid-sm font-heading font-semibold mb-6;
+}
+
+.section-title {
+  @apply text-fluid-4xl sm:text-fluid-5xl font-heading font-extrabold tracking-tight;
+}
+
+.section-subtitle {
+  @apply text-fluid-lg text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed;
+}
+
+/* ========================================
+   BADGE & BADGE-STYLE
+   ======================================== */
+
+.badge {
+  @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full
+           text-xs font-semibold bg-yellow/10 text-yellow;
+}
+
+.badge-yellow {
+  @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full
+           bg-yellow/15 text-yellow;
+}
+
+/* ========================================
+   IMAGE STYLES
+   ======================================== */
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-fluid:hover {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   BADGE HOVER EFFECTS
+   ======================================== */
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   LINE & DIVIDER STYLES
+   ======================================== */
+
+.divider-yellow {
+  @apply h-px bg-gradient-to-r from-transparent via-yellow/30 to-transparent;
+}
+
+/* ========================================
+   FOCUT RING STYLES
+   ======================================== */
+
+.focus-ring-yellow {
+  @apply focus-visible:ring-2 focus-yellow focus-ring-offset-2 focus-ring-offset-black;
+}
+
+/* ========================================
+   INPUT & FORM CONTROLS
+   ======================================== */
+
+input, select, textarea {
+  @apply w-full px-5 py-4 rounded-xl bg-white/5 border-2 transition-all duration-300
+         text-white placeholder-gray-500 focus:outline-none
+         focus:border-yellow focus:ring-yellow/20
+         placeholder-opacity-50;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   PREMIUM SHADOWS UTILITIES
+   ======================================== */
+
+.shadow-glow-yellow {
+  @apply shadow-[0_0_40px_rgba(255,180,0,0.3)];
+}
+
+.shadow-glow-yellow-lg {
+  @apply shadow-[0_0_60px_rgba(255,180,0,0.4)];
+}
+
+.shadow-premium {
+  @apply shadow-[0_4px_24px_rgba(0,0,0,0.5)];
+}
+
+.shadow-premium-hover {
+  @apply shadow-[0_12px_48px_rgba(0,0,0,0.6)_0_0_0_1px_rgba(255,180,0,0.3)_0_0_60px_rgba(255,180,0,0.15)];
+}
+
+/* ========================================
+   BADGE ANIMATION ON HOVER
+   ======================================== */
+
+.bounce-on-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bounce-on-hover:hover {
+  transform: scale(1.1) rotate(3deg);
+}
