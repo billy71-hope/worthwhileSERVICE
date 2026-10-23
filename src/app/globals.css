@@ -132,15 +132,17 @@ img {
 }
 
 .glass-lg {
-  @apply bg-white/8 backdrop-blur-xl border border-white/15;
+  @apply bg-white/10 backdrop-blur-xl border border-white/15;
 }
 
 .glass-yellow {
-  @apply bg-yellow/5 backdrop-blur-xl border border-yellow/15;
+  @apply backdrop-blur-xl border border-yellow/15;
+  background-color: rgb(255 180 0 / 0.05);
 }
 
 .glass-yellow-lg {
-  @apply bg-yellow/10 backdrop-blur-xl border border-yellow/20;
+  @apply backdrop-blur-xl border border-yellow/20;
+  background-color: rgb(255 180 0 / 0.10);
 }
 
 /* ========================================
@@ -381,11 +383,11 @@ img {
 }
 
 /* ========================================
-   FOCUT RING STYLES
+   FOCUS RING STYLES
    ======================================== */
 
 .focus-ring-yellow {
-  @apply focus-visible:ring-2 focus-yellow focus-ring-offset-2 focus-ring-offset-black;
+  @apply focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-black;
 }
 
 /* ========================================
@@ -394,9 +396,8 @@ img {
 
 input, select, textarea {
   @apply w-full px-5 py-4 rounded-xl bg-white/5 border-2 transition-all duration-300
-         text-white placeholder-gray-500 focus:outline-none
-         focus:border-yellow focus:ring-yellow/20
-         placeholder-opacity-50;
+         text-white focus:outline-none
+         focus:border-yellow focus:ring-2 focus:ring-yellow/20;
 }
 
 input::placeholder, textarea::placeholder {
@@ -408,19 +409,22 @@ input::placeholder, textarea::placeholder {
    ======================================== */
 
 .shadow-glow-yellow {
-  @apply shadow-[0_0_40px_rgba(255,180,0,0.3)];
+  box-shadow: 0 0 40px rgba(255, 180, 0, 0.3);
 }
 
 .shadow-glow-yellow-lg {
-  @apply shadow-[0_0_60px_rgba(255,180,0,0.4)];
+  box-shadow: 0 0 60px rgba(255, 180, 0, 0.4);
 }
 
 .shadow-premium {
-  @apply shadow-[0_4px_24px_rgba(0,0,0,0.5)];
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .shadow-premium-hover {
-  @apply shadow-[0_12px_48px_rgba(0,0,0,0.6)_0_0_0_1px_rgba(255,180,0,0.3)_0_0_60px_rgba(255,180,0,0.15)];
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 180, 0, 0.3),
+    0 0 60px rgba(255, 180, 0, 0.15);
 }
 
 /* ========================================
@@ -435,12 +439,15 @@ input::placeholder, textarea::placeholder {
   transform: scale(1.1) rotate(3deg);
 }
 
+/* ========================================
+   SUBTLE PULSE ANIMATION
+   ======================================== */
 
-/* Keyframe for subtle pulse animation */
 @keyframes pulse-subtle {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
+
 .animate-pulse-subtle {
   animation: pulse-subtle 2s ease-in-out infinite;
 }
