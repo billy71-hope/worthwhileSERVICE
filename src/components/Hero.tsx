@@ -193,12 +193,3 @@ export default function Hero() {
     </section>
   );
 }
-
-/* Keyframe for subtle pulse animation */
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-.animate-pulse-subtle {
-  animation: pulse-subtle 2s ease-in-out infinite;
-}
